@@ -4,8 +4,17 @@ const lib = require('./lib')
 const _ = require('lodash')
 
 //validate dep first
-const bcrypt = require('bcrypt') || require('bcryptjs')
-if(!bcrypt) { throw Error('Please npm install bcrypt or bcryptjs')}
+function moduleAvailable(name) {
+    try {
+        require.resolve(name);
+        return true;
+    } catch(e){}
+    return false;
+}
+
+if(!moduleAvailable('bcrypt') && !moduleAvailable('bcryptjs')) {
+  throw Error('Please npm install bcrypt or bcryptjs')
+}
 
 module.exports = class PassportTrailpack extends Trailpack {
 

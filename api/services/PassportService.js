@@ -2,9 +2,18 @@
 
 const Service = require('trails-service')
 
-const bcrypt = require('bcrypt') || require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const _ = require('lodash')
+
+var bcrypt
+try {
+    bcrypt = require('bcrypt')
+} catch(e){
+    bcrypt = require('bcryptjs')
+}
+
+
+
 
 /**
  * @module PassportService
