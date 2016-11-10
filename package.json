@@ -26,7 +26,6 @@
     "login"
   ],
   "dependencies": {
-    "bcrypt": "^0.8.7",
     "joi": "^9.1.0",
     "jsonwebtoken": "^7.1.9",
     "lodash": "^4.16.4",
@@ -46,6 +45,7 @@
     "passport-local": "^1.0.0",
     "sails-disk": "^0.10.10",
     "smokesignals": "^1.2.2",
+    "snyk": "^1.19.1",
     "sqlite3": "^3.1.6",
     "supertest": "^2.0.0",
     "trailpack-core": "^1.0.1",
@@ -53,13 +53,12 @@
     "trailpack-router": "^1.0.8",
     "trailpack-sequelize": "^1.1.0",
     "trailpack-waterline": "^1.0.0-beta-1",
-    "trails": "^1.1.0",
-    "snyk": "^1.19.1"
+    "trails": "^1.1.0"
   },
   "scripts": {
     "test": "snyk test && eslint --fix . && npm run testWaterline && npm run testSequelize",
-    "testWaterline": "export ORM=waterline;mocha",
-    "testSequelize": "export ORM=sequelize;mocha"
+    "testWaterline": "cross-env ORM=waterline;mocha",
+    "testSequelize": "cross-env ORM=sequelize;mocha"
   },
   "engines": {
     "node": ">= 4.0.0"

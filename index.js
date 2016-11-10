@@ -3,6 +3,10 @@ const Trailpack = require('trailpack')
 const lib = require('./lib')
 const _ = require('lodash')
 
+//validate dep first
+const bcrypt = require('bcrypt') || require('bcryptjs')
+if(!bcrypt) { throw Error('Please npm install bcrypt or bcryptjs')}
+
 module.exports = class PassportTrailpack extends Trailpack {
 
   /**
@@ -48,4 +52,3 @@ module.exports = class PassportTrailpack extends Trailpack {
     })
   }
 }
-

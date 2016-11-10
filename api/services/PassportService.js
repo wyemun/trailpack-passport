@@ -2,7 +2,7 @@
 
 const Service = require('trails-service')
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt') || require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 
